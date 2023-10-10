@@ -1,0 +1,132 @@
+<calC.html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Convertor</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">  
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>  
+    <link rel="stylesheet" href="calC.css">
+    <script src="calC.js"></script>
+    <link rel="icon"  href="icons8-calculator-94.png">
+</head>
+<body>
+    <h1 style="font-weight: bolder;">Temperature Convertor</h1>
+    <p style="font-family:cursive; font-weight: bold;">**Provide temperature in Celsius and Convert it to Fahrenheit and Kelvin</p>
+        <div class="wrapper">
+            <form >
+                <label for="lectures">Enter temperature in Celcius (°C)</label>
+                <input type="number" id="celcius"/>
+                <br>
+                <button type="submit" id="submit">Submit</button>
+                <br>
+                <label for="absents">Temperature in Fahrenheit (°F)</label>
+                <div class="res" id="fahrenheit"></div>
+                <br>
+                <label for="percent">Temperature in Kelvin (K)</label>
+                <div class="res" id="kelvin"></div>
+            </form>
+        </div>
+    <footer>
+ <div style="background-color: rgb(255, 255, 255); font-family:cursive; font-weight: bold; margin-bottom: 0px;">Temperature Convertor ©2023 Copyright: Mahak</div>
+    </footer>
+</body>
+</html>
+
+
+<calC.JS>
+
+
+jQuery("document").ready(function($) {
+    $("#submit").click(function(event){
+        event.preventDefault();
+        var temperatureInCelcius = parseInt($("#celcius").val());
+        var temperatureInFahrenheit = (temperatureInCelcius * 9/5)+32;
+        var temperatureInKelvin = temperatureInCelcius + 273.15;
+        
+        {
+            $("#fahrenheit").html(temperatureInFahrenheit);
+            $("#kelvin").html(temperatureInKelvin);
+        }
+        
+    })
+
+    // formula for celcius to fahrenhit  --->> (celcius * 9 / 5) + 32
+    // formula for celcius to kelvin  --->> celcius + 273.15
+
+});
+
+
+       
+
+<calC.css>
+
+body{
+    background-color: bisque;
+    text-align: center;
+}
+
+.wrapper{
+    border: 1px solid black;
+    background-color:cadetblue;
+    color: rgb(255, 255, 255);
+    margin: 4vw 20vw;
+    padding: 2vw;
+
+}
+
+.res{
+    height: 50px; 
+    width: 100%; 
+    border: 3px solid black; 
+    background-color: rgb(185, 250, 197);
+    display: block;
+    max-width: 550px;
+    font-size: xx-large;
+    font-weight: bolder;
+    text-align: center;
+    color: black;
+
+}
+
+form {
+    display: inline-block;   
+}
+
+input{
+    display: block;
+    width: 100%;
+    max-width: 550px;
+    border: 3px solid black;
+    background-color:rgb(185, 208, 250);
+    font-size: x-large;
+    font-weight: bolder;
+    text-align: center;
+}
+
+label{
+    font-size: xx-large;
+    font-weight: bolder;
+}
+
+
+button{
+    color: brown;
+    font-size: large;
+    font-weight: bolder;
+    padding: 8px;
+    background-color: bisque;
+    border: 1px solid black ;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+button:hover{
+    font-size: x-large;
+    font-weight: 1000;
+    background-color: rgb(255, 195, 121);
+    border: 2px solid brown;
+}
